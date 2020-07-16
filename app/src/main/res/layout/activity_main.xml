@@ -28,6 +28,7 @@
         android:layout_marginTop="15dp"/>
 
     <EditText
+        android:id="@+id/emailEdt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="이메일 양식으로 적어주세요."
@@ -41,12 +42,14 @@
         android:layout_marginTop="15dp"/>
 
     <EditText
+        android:id="@+id/pwEdt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="비밀번호 입력"
         android:inputType="textPassword" />
 
     <Button
+        android:id="@+id/loginBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="로그인"
