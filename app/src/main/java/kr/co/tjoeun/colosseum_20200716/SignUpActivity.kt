@@ -8,6 +8,7 @@ import android.util.Log
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import kr.co.tjoeun.colosseum_20200716.utils.ServerUtil
+import org.json.JSONObject
 
 class SignUpActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,7 +52,12 @@ class SignUpActivity : BaseActivity() {
 //            모든 검사를 통과하면, 서버에 가입 요청
 //            여기 코드가 실행된다 => 모든 검사를 통과했다.
 
-//            ServerUtil.
+            ServerUtil.putRequestSignUp(mContext, inputEmail, inputPassword, inputNickName, object : ServerUtil.JsonResponseHandler {
+                override fun onResponse(json: JSONObject) {
+
+                }
+
+            })
 
 
         }
