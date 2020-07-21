@@ -3,6 +3,8 @@ package kr.co.tjoeun.colosseum_20200716
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.activity_view_topic_detail.*
 import kr.co.tjoeun.colosseum_20200716.datas.Topic
 import kr.co.tjoeun.colosseum_20200716.utils.ServerUtil
 import org.json.JSONObject
@@ -56,6 +58,9 @@ class ViewTopicDetailActivity : BaseActivity() {
 
 //                화면에 토론 관련 정보 표시
                 runOnUiThread {
+
+                    topicTitleTxt.text = mTopic.title
+                    Glide.with(mContext).load(mTopic.imageUrl).into(topicImg)
 
                 }
 
