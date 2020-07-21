@@ -22,14 +22,85 @@
             android:layout_height="match_parent"
             android:background="#AA000000" />
 
-        <TextView
-            android:id="@+id/topicTitleTxt"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_gravity="center"
             android:layout_height="wrap_content"
-            android:text="토론 주제 자리"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"/>
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+            
+            <TextView
+                android:id="@+id/topicTitleTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="토론 주제 자리"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"/>
+            
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="첫번째 진영"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="득표 수"
+                        android:textColor="#FFFFFF" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vs."
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="두번째 진영"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="득표 수"
+                        android:textColor="#FFFFFF" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        
 
     </FrameLayout>
 
