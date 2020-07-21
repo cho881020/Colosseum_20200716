@@ -45,6 +45,14 @@ class ViewTopicDetailActivity : BaseActivity() {
 
             Log.d("투표하려는 진영 제목", clickedSide.title)
 
+//            실제로 해당 진영에 투표하기
+            ServerUtil.postRequestVote(mContext, clickedSide.id, object : ServerUtil.JsonResponseHandler {
+                override fun onResponse(json: JSONObject) {
+
+                }
+
+            })
+
         }
 
 //        두개의 투표하기 버튼이 눌리면 할 일을 모두 voteCode에 적힌 내용으로
