@@ -65,6 +65,13 @@
                         android:text="득표 수"
                         android:textColor="#FFFFFF" />
 
+                    <Button
+                        android:id="@+id/voteToFirstSideBtn"
+                        android:tag="0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="투표 하기" />
+
                 </LinearLayout>
 
                 <TextView
@@ -96,6 +103,13 @@
                         android:layout_height="wrap_content"
                         android:text="득표 수"
                         android:textColor="#FFFFFF" />
+
+                    <Button
+                        android:id="@+id/voteToSecondSideBtn"
+                        android:tag="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="투표 하기" />
 
                 </LinearLayout>
 
