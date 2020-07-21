@@ -2,6 +2,8 @@ package kr.co.tjoeun.colosseum_20200716
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_main.*
+import kr.co.tjoeun.colosseum_20200716.adapters.TopicAdapter
 import kr.co.tjoeun.colosseum_20200716.datas.Topic
 import kr.co.tjoeun.colosseum_20200716.utils.ServerUtil
 import org.json.JSONObject
@@ -9,6 +11,8 @@ import org.json.JSONObject
 class MainActivity : BaseActivity() {
 
     val mTopicList = ArrayList<Topic>()
+
+    lateinit var mTopicAdapter : TopicAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +27,10 @@ class MainActivity : BaseActivity() {
 
     override fun setValues() {
         getTopicListFromServer()
+
+        mTopicAdapter = TopicAdapter(mContext, R.layout.topic_list_item, mTopicList)
+        topicListView.adapter = mTopicAdapter
+
     }
 
     fun getTopicListFromServer() {
@@ -53,6 +61,13 @@ class MainActivity : BaseActivity() {
 //                    변환된 객체를 목록에 추가
                     mTopicList.add(topic)
 
+                }
+
+//                for문으로 주제 목록을 모두 추가하고 나면
+//                리스트뷰의 내용이 바꼈다고 새로고침
+
+                runOnUiThread {
+                    mTopicAdapter.notifyDataSetChanged()
                 }
 
             }
