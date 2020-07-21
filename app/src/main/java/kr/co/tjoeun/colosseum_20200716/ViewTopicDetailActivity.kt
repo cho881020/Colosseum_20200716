@@ -2,6 +2,8 @@ package kr.co.tjoeun.colosseum_20200716
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_view_topic_detail.*
@@ -25,6 +27,30 @@ class ViewTopicDetailActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+//        버튼이 눌리면 할 일을 변수에 담아서 저장.
+//        TedPermission에서 권한별 할 일을 변수에 담아서 저장한것과 같은 논리
+
+        val voteCode = View.OnClickListener {
+
+//            it => View형태 => 눌린 버튼을 담고 있는 변수.
+
+            val clickedSideTag = it.tag.toString()
+
+            Log.d("눌린 버튼의 태그", clickedSideTag)
+            
+//            눌린 버튼의 태그를 Int로 바꿔서
+//            토론 주제의 진영중 어떤 진영을 눌렀는지 가져오는 index로 활용
+            val clickedSide = mTopic.sideList[clickedSideTag.toInt()]
+
+            Log.d("투표하려는 진영 제목", clickedSide.title)
+
+        }
+
+//        두개의 투표하기 버튼이 눌리면 할 일을 모두 voteCode에 적힌 내용으로
+        voteToFirstSideBtn.setOnClickListener(voteCode)
+        voteToSecondSideBtn.setOnClickListener(voteCode)
+
 
     }
 
