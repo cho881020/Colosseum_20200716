@@ -135,6 +135,20 @@ class ViewTopicDetailActivity : BaseActivity() {
         firstSideVoteCountTxt.text = "${mTopic.sideList[0].voteCount}표"
         secondSideVoteCountTxt.text = "${mTopic.sideList[1].voteCount}표"
 
-    }
+//        내가 투표를 했는지 or 어느 진영에 했는지에 따라 버튼 UX 변경
+//        투표 X : 두 버튼 모두 "투표하기"
+//        첫번째 진영 투표 : 첫 버튼 "투표취소", 두번째 진영 "갈아타기"
+//        그 외 : 두번째 진영 투표한걸로 처리
 
+//        투표 한 진영이 몇번째 진영인지? 파악해야함
+
+
+        if (mTopic.mySideId == -1) {
+//            아직 투표 안한 경우
+            voteToFirstSideBtn.text = "투표하기"
+            voteToSecondSideBtn.text = "투표하기"
+        }
+
+
+    }
 }
