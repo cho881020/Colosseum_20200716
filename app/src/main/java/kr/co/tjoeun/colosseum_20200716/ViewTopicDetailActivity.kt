@@ -1,5 +1,6 @@
 package kr.co.tjoeun.colosseum_20200716
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -35,6 +36,14 @@ class ViewTopicDetailActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+//        의견 등록하기 누르면 작성 화면으로
+
+        postReplyBtn.setOnClickListener {
+            val myIntent = Intent(mContext, EditReplyActivity::class.java)
+            startActivity(myIntent)
+        }
+
 
 //        버튼이 눌리면 할 일을 변수에 담아서 저장.
 //        TedPermission에서 권한별 할 일을 변수에 담아서 저장한것과 같은 논리
