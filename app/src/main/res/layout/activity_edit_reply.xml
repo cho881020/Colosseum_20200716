@@ -19,6 +19,7 @@
             android:text="토론 주제" />
 
         <TextView
+            android:id="@+id/topicTitleTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="실제 참가중인 주제 자리"
@@ -45,6 +46,7 @@
             android:text="선택한 진영" />
 
         <TextView
+            android:id="@+id/mySideTitleTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="실제 진영 자리"
@@ -71,6 +73,7 @@
             android:text="의견 내용 입력" />
 
         <EditText
+            android:id="@+id/contentEdt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="해당 진영에 대한 옹호 의견을 적어주세요."
