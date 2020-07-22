@@ -14,6 +14,9 @@ class User {
             val u = User()
             
 //            사용자 정보를 파싱하는 코드
+            u.id = json.getInt("id")
+            u.email = json.getString("email")
+            u.nickName = json.getString("nick_name")
             
             return u
         }
