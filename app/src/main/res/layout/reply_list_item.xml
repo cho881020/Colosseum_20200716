@@ -17,6 +17,7 @@
             android:gravity="center_vertical">
 
             <TextView
+                android:id="@+id/writerNickNameTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="작성자닉네임"
@@ -24,6 +25,7 @@
                 android:textColor="#000000" />
 
             <TextView
+                android:id="@+id/selectedSideTitleTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="(선택한진영)"
@@ -38,6 +40,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/contentTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
