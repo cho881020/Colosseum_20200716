@@ -14,6 +14,11 @@ class Reply {
 //    의견이 작성된 시간을 담는 변수
     val writtenDateTime = Calendar.getInstance()
 
+//    좋아요 / 싫어요 / 답글 갯수를 저장할 변수들
+    var likeCount = 0
+    var dislikeCount = 0
+    var replyCount = 0
+
     companion object {
 
 //        JSONObject 하나를 넣으면 => 의견 내용을 파싱해서 Reply로 리턴하는 기능
@@ -51,6 +56,12 @@ class Reply {
 //            게시글 작성시간을 timeOffset만큼 시간값을 더해주자.
             r.writtenDateTime.add(Calendar.HOUR, timeOffset)
 
+
+//            좋아요 / 싫어요 / 답글 갯수 실제 파싱 저장
+
+            r.likeCount = json.getInt("like_count")
+            r.dislikeCount = json.getInt("dislike_count")
+            r.replyCount = json.getInt("reply_count")
 
 
             return r
