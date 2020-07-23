@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.TextView
 import kr.co.tjoeun.colosseum_20200716.R
 import kr.co.tjoeun.colosseum_20200716.datas.Reply
@@ -34,6 +35,11 @@ class ReplyAdapter(
 //        시간 정보 텍스트뷰
         val replyWriteTimeTxt = row.findViewById<TextView>(R.id.replyWriteTimeTxt)
 
+//        버튼들 추가 => 좋/싫/답글
+        val replyBtn = row.findViewById<Button>(R.id.replyBtn)
+        val likeBtn = row.findViewById<Button>(R.id.likeBtn)
+        val dislikeBtn = row.findViewById<Button>(R.id.dislikeBtn)
+
         val data = mList[position]
 
         writerNickNameTxt.text = data.writer.nickName
@@ -50,6 +56,12 @@ class ReplyAdapter(
 //
 //        replyWriteTimeTxt.text = sdf.format(data.writtenDateTime.time)
 
+
+//        좋/싫/답글 갯수 반영
+
+        likeBtn.text = "좋아요 ${data.likeCount}"
+        dislikeBtn.text = "싫어요 ${data.dislikeCount}"
+        replyBtn.text = "답글 ${data.replyCount}"
 
         return row
     }

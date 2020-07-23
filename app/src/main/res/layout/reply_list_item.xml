@@ -65,6 +65,7 @@
             android:layout_marginTop="5dp">
 
             <Button
+                android:id="@+id/replyBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:focusable="false"
@@ -76,12 +77,14 @@
                 android:layout_weight="1"/>
 
             <Button
+                android:id="@+id/likeBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:focusable="false"
                 android:text="좋아요 ~" />
 
             <Button
+                android:id="@+id/dislikeBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:focusable="false"
