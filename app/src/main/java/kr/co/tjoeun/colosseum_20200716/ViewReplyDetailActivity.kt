@@ -2,8 +2,10 @@ package kr.co.tjoeun.colosseum_20200716
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_view_reply_detail.*
 import kr.co.tjoeun.colosseum_20200716.datas.Reply
 import kr.co.tjoeun.colosseum_20200716.utils.ServerUtil
+import kr.co.tjoeun.colosseum_20200716.utils.TimeUtil
 import org.json.JSONObject
 
 class ViewReplyDetailActivity : BaseActivity() {
@@ -44,7 +46,26 @@ class ViewReplyDetailActivity : BaseActivity() {
         ServerUtil.getRequestReplyDetail(mContext, mReplyId, object : ServerUtil.JsonResponseHandler {
             override fun onResponse(json: JSONObject) {
 
+                val data = json.getJSONObject("data")
+                val replyObj = data.getJSONObject("reply")
 
+//                replyObj 를 => Reply클래스로 변환 => mReply에 저장
+
+                mReply = Reply.getReplyFromJson(replyObj)
+
+//                mReply 내부의 변수(정보) 들을 => 화면에 반영
+
+                runOnUiThread {
+
+                    writerNickNameTxt.text = mReply.writer.nickName
+
+                    selectedSideTitleTxt.text = "(${mReply.selectedSide.title})"
+
+                    writtenDateTimeTxt.text = TimeUtil.getTimeAgoFromCalendar(mReply.writtenDateTime)
+
+                    replyContentTxt.text = mReply.content
+
+                }
 
             }
 
