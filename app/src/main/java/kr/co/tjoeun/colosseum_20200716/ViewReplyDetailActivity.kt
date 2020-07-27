@@ -3,6 +3,7 @@ package kr.co.tjoeun.colosseum_20200716
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_view_reply_detail.*
+import kr.co.tjoeun.colosseum_20200716.adapters.ReReplyAdapter
 import kr.co.tjoeun.colosseum_20200716.datas.Reply
 import kr.co.tjoeun.colosseum_20200716.utils.ServerUtil
 import kr.co.tjoeun.colosseum_20200716.utils.TimeUtil
@@ -19,6 +20,8 @@ class ViewReplyDetailActivity : BaseActivity() {
 
 //    의견에 달린 답글들을 저장할 목록
     val mReReplyList = ArrayList<Reply>()
+
+    lateinit var mReReplyAdapter : ReReplyAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +42,9 @@ class ViewReplyDetailActivity : BaseActivity() {
 //        해당 id값에 맞는 의견 정보를 (서버에서) 다시 불러오자
 
         getReplyFromServer()
+
+        mReReplyAdapter = ReReplyAdapter(mContext, R.layout.re_reply_list_item, mReReplyList)
+        reReplyListView.adapter = mReReplyAdapter
 
     }
 
@@ -79,6 +85,9 @@ class ViewReplyDetailActivity : BaseActivity() {
                     writtenDateTimeTxt.text = TimeUtil.getTimeAgoFromCalendar(mReply.writtenDateTime)
 
                     replyContentTxt.text = mReply.content
+
+//                    답글 목록이 모두 불러지면 새로 반영
+                    mReReplyAdapter.notifyDataSetChanged()
 
                 }
 
