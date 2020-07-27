@@ -30,6 +30,28 @@ class ReReplyAdapter(
 
         val row = tempRow!!
 
+        val writerNickNameTxt = row.findViewById<TextView>(R.id.writerNickNameTxt)
+        val selectedSideTitleTxt = row.findViewById<TextView>(R.id.selectedSideTitleTxt)
+        val replyWriteTimeTxt = row.findViewById<TextView>(R.id.replyWriteTimeTxt)
+        val contentTxt = row.findViewById<TextView>(R.id.contentTxt)
+        val likeBtn = row.findViewById<Button>(R.id.likeBtn)
+        val dislikeBtn = row.findViewById<Button>(R.id.dislikeBtn)
+
+
+        val data = mList[position]
+
+        writerNickNameTxt.text = data.writer.nickName
+
+        selectedSideTitleTxt.text = "(${data.selectedSide.title})"
+
+        replyWriteTimeTxt.text = TimeUtil.getTimeAgoFromCalendar(data.writtenDateTime)
+
+        contentTxt.text = data.content
+
+        likeBtn.text = "좋아요 ${data.likeCount}"
+        dislikeBtn.text = "싫어요 ${data.dislikeCount}"
+
+
         return row
     }
 
