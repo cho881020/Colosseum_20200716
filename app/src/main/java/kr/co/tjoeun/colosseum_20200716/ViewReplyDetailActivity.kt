@@ -2,6 +2,7 @@ package kr.co.tjoeun.colosseum_20200716
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_view_reply_detail.*
 import kr.co.tjoeun.colosseum_20200716.adapters.ReReplyAdapter
 import kr.co.tjoeun.colosseum_20200716.datas.Reply
@@ -31,6 +32,32 @@ class ViewReplyDetailActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+        postReReplyBtn.setOnClickListener {
+
+            val inputContent = contentEdt.text.toString()
+
+//            5글자 미만이면, 거부처리
+
+            if (inputContent.length < 5) {
+                Toast.makeText(mContext, "최소 5글자 이상은 입력해주세요.", Toast.LENGTH_SHORT).show()
+//                이 뒤의 코드는 실행할 필요가 없다.
+                return@setOnClickListener
+            }
+
+//            else를 안적어도, 5글자 이상임이 담보된 상태.
+//            적은 내용을 답글로 서버에 등록
+
+            ServerUtil.postRequestReReply(mContext, mReplyId, inputContent, object : ServerUtil.JsonResponseHandler {
+                override fun onResponse(json: JSONObject) {
+
+
+
+                }
+
+            })
+
+        }
 
     }
 
