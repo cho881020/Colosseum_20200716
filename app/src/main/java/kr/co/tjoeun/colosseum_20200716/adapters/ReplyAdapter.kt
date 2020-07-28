@@ -2,6 +2,7 @@ package kr.co.tjoeun.colosseum_20200716.adapters
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Handler
 import android.os.Looper
 import android.view.LayoutInflater
@@ -75,18 +76,25 @@ class ReplyAdapter(
         if (data.myLike) {
 //            좋아요버튼의 배경을 => red_border_box로 변경하자.
             likeBtn.setBackgroundResource(R.drawable.red_border_box)
+//            좋아요 버튼의 글씨 색깔도 => naverRed로 변경하자.
+            likeBtn.setTextColor(mContext.resources.getColor(R.color.naverRed))
         }
         else {
 //            좋아요 버튼의 배경을 => gray_border_box로.
             likeBtn.setBackgroundResource(R.drawable.gray_border_box)
+//            좋아요를 안찍었다면 => gray로 돌려줘야함.
+            likeBtn.setTextColor(mContext.resources.getColor(R.color.textGray))
         }
 
         if (data.myDislike) {
 //            싫어요를 누른 상태
             dislikeBtn.setBackgroundResource(R.drawable.blue_border_box)
+            dislikeBtn.setTextColor(mContext.resources.getColor(R.color.naverBlue))
         }
         else {
             dislikeBtn.setBackgroundResource(R.drawable.gray_border_box)
+            dislikeBtn.setTextColor(mContext.resources.getColor(R.color.textGray))
+
         }
 
 //        답글 버튼이 눌리면 => 의견 상세 화면으로 진입
