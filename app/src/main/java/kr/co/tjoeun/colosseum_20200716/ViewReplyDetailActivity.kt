@@ -52,6 +52,16 @@ class ViewReplyDetailActivity : BaseActivity() {
                 override fun onResponse(json: JSONObject) {
 
 
+//                    서버가 이야기하는 내용을 출력
+                    runOnUiThread {
+
+                        val message = json.getString("message")
+                        Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
+                    }
+
+//                    의견 상세를 다시 불러내서 => 답글 목록도 다시 받아내자.
+                    getReplyFromServer()
+
 
                 }
 
@@ -88,6 +98,9 @@ class ViewReplyDetailActivity : BaseActivity() {
 //                replyObj 를 => Reply클래스로 변환 => mReply에 저장
 
                 mReply = Reply.getReplyFromJson(replyObj)
+
+//                답글 목록은 누적되면 안됨. => 다 비워주고 다시 파싱
+                mReReplyList.clear()
 
 //                replies JSONArray를 돌면서 => Reply로 변환해서 => mReReplyList에 추가
 
