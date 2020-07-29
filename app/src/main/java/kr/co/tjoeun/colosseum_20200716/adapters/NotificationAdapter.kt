@@ -37,6 +37,12 @@ class NotificationAdapter(
 
         val row = tempRow!!
 
+        val notiTitleTxt = row.findViewById<TextView>(R.id.notiTitleTxt)
+        val notiCreatedAtTxt = row.findViewById<TextView>(R.id.notiCreatedAtTxt)
+
+        val data = mList[position]
+
+        notiTitleTxt.text = data.title
 
         return row
     }
