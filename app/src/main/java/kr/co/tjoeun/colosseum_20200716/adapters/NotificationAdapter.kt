@@ -44,6 +44,8 @@ class NotificationAdapter(
 
         notiTitleTxt.text = data.title
 
+        notiCreatedAtTxt.text = TimeUtil.getTimeAgoFromCalendar(data.createAtCal)
+
         return row
     }
 
